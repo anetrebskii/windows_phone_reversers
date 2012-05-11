@@ -18,6 +18,7 @@ namespace WP7.Reversers
         // Constructor
         public MainPage()
         {
+			//todo
             InitializeComponent();
         }
     }
