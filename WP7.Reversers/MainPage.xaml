@@ -13,22 +13,96 @@
     shell:SystemTray.IsVisible="True" d:DesignHeight="696" d:DesignWidth="480">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="133*" />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="104" />
+            <ColumnDefinition Width="133*" />
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
         </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="4"
+          Grid.Row="2" Margin="0,0,40,0">
+            <Grid x:Name="_board"
+            ShowGridLines="True"
+            UseLayoutRounding="True"
+            MouseLeftButtonUp="_board_MouseLeftButtonUp"
+            Height="400"
+            Width="400">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.984,0.983"
+                               StartPoint="0.025,0.024">
+                        <GradientStop Color="#4CA2A2A2"
+                          Offset="0" />
+                        <GradientStop Color="#4CA2A2A2"
+                          Offset="1" />
+                        <GradientStop Color="#60B4B4B4"
+                          Offset="0.247" />
+                        <GradientStop Color="#60FFFFFF"
+                          Offset="0.837" />
+                        <GradientStop Color="#60FFFFFF"
+                          Offset="0.423" />
+                        <GradientStop Color="#60E7E7E7"
+                          Offset="0.709" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+            </Grid>
+        </Grid>
 
-        <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        <TextBlock VerticalAlignment="Center"
+               Grid.Column="3"
+               HorizontalAlignment="Right"
+               Text="{Binding Status}"
+               Margin="5" />
+        <StackPanel Orientation="Vertical"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                Margin="5">
+            <Button Click="NewGameClick"
+              VerticalAlignment="Center"
+              Content="{Binding rsStartNewGame, Source={StaticResource LocStrings}}"
+              Width="85" />
         </StackPanel>
-
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"></Grid>
+        <StackPanel Grid.Column="2" HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal" Margin="12,0,82,0">
+            <TextBlock FontSize="40"
+                 FontWeight="Bold"
+                 Text="{Binding Whites}"
+                 Foreground="Silver" />
+            <TextBlock FontSize="40"
+                 FontWeight="Bold"
+                 Foreground="Gray"><Run Text=":" /></TextBlock>
+            <TextBlock FontSize="40"
+                 FontWeight="Bold"
+                 Text="{Binding Blacks}" />
+        </StackPanel>
     </Grid>
- 
     <!--Sample code showing usage of ApplicationBar-->
     <!--<phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
