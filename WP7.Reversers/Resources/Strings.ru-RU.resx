@@ -151,4 +151,10 @@
   <data name="rsSelectPlayers" xml:space="preserve">
     <value>Выберите игроков:</value>
   </data>
+  <data name="rsUserVsAI" xml:space="preserve">
+    <value>Против компьютера</value>
+  </data>
+  <data name="rsUserVsUser" xml:space="preserve">
+    <value>Против человека</value>
+  </data>
 </root>

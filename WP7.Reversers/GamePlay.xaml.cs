@@ -8,9 +8,11 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Reversi;
+using WP7.Reversers.Core;
 
 namespace WP7.Reversers
 {
@@ -20,6 +22,14 @@ namespace WP7.Reversers
         {
             InitializeComponent();
 
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            String navigationMessage;
+            _gameMode = NavigationContext.QueryString[Consts.PARAM_WHO_PLAY] == Consts.USER_VS_USER ? 0 : 1;
+            
             NewGame();
         }
 
@@ -32,38 +42,20 @@ namespace WP7.Reversers
         }
 
         GamePlayer _black, _white;
-        AquaCell[,] _cells;
+        BoardCell[,] _cells;
 
         void NewGamePrompt()
         {
-            //var gameInProgress = Game != null && !Game.GameOver;
-            //NavigationService.Navigate(new Uri("NewGamePage.xaml", UriKind.Relative));
-
-            //var box = new NewGamePage
-            //{
-            //    GameInProgress = gameInProgress,
-            //    SelectedGameMode = _gameMode,
-            //    FastAI = _fastAi
-            //};
-
-            //box.Closed += (s, args) =>
-            //{
-            //    if (box.DialogResult == true)
-            //    {
-            //        _gameMode = box.SelectedGameMode;
-            //        _fastAi = box.FastAI;
-            //        NewGame();
-            //    }
-            //};
-
-            //box.Show();
+            _gameMode = NavigationContext.QueryString[Consts.PARAM_WHO_PLAY] == Consts.USER_VS_USER ? 0 : 1;
+            DataContext = _gameMode;
+            NewGame();
         }
 
         void NewGame()
         {
             CloseGame();
 
-            _cells = new AquaCell[8, 8];
+            _cells = new BoardCell[8, 8];
 
             switch (_gameMode)
             {
@@ -118,12 +110,12 @@ namespace WP7.Reversers
             var cell = _cells[x, y];
             if (cell == null)
             {
-                cell = new AquaCell();
+                cell = new BoardCell();
                 cell.SetValue(Grid.ColumnProperty, x);
                 cell.SetValue(Grid.RowProperty, y);
                 _cells[x, y] = cell;
                 _board.Children.Add(cell);
-                VisualStateManager.GoToState(cell, value ? "NewWhite" : "NewBlack", true);
+                VisualStateManager.GoToState(cell, value ? "White" : "Black", true);
             }
             else
                 VisualStateManager.GoToState(cell, value ? "White" : "Black", true);

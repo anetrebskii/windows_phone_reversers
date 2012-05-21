@@ -16,14 +16,14 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Button  Content="{Binding Source={StaticResource LocStrings}, Path=rsCancel}"
+        <Button  Content="Cancel"
              Click="CancelButton_Click"
              Width="75"
              Height="23"
              HorizontalAlignment="Right"
              Margin="0,12,0,0"
              Grid.Row="1" />
-        <Button  Content="{Binding Source={StaticResource LocStrings}, Path=rsOK}"
+        <Button  Content="OK"
              Click="OKButton_Click"
              Width="75"
              Height="23"
@@ -40,7 +40,7 @@
             </Grid.ColumnDefinitions>
             <TextBlock Height="Auto"
                  
-                 Text="{Binding Path=rsSelectPlayers, Source={StaticResource LocStrings}}"
+                 Text="Select Players"
                  VerticalAlignment="Center"
                  Margin="2" />
             <ComboBox Name="_players"
@@ -56,7 +56,7 @@
                 <ComboBoxItem Content="AI vs PC" />
                 <ComboBoxItem Content="AI vs AI" />
             </ComboBox>
-            <CheckBox Content="{Binding Source={StaticResource LocStrings}, Path=rsFasterAI}"
+            <CheckBox Content="Faster AI"
                 Grid.Column="1"
                 Height="16"
                 HorizontalAlignment="Right"
@@ -67,11 +67,11 @@
         </Grid>
         <TextBlock HorizontalAlignment="Stretch"
                Name="_warning"
-               Text="{Binding Source={StaticResource LocStrings}, Path=rsGameInProgress}"
+               Text="Game in progress"
                VerticalAlignment="Bottom"
                TextWrapping="Wrap"
                FontWeight="Bold"
-               TextAlignment="Center" />
+               TextAlignment="Center" Height="0" Margin="0,0,0,27" />
         <TextBlock Grid.Row="1"
                HorizontalAlignment="Left"
                Name="textBlock2"

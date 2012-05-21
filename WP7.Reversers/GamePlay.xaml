@@ -79,25 +79,18 @@
                HorizontalAlignment="Right"
                Text="{Binding Status}"
                Margin="5" />
-        <StackPanel Orientation="Vertical"
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                HorizontalAlignment="Left"
-                Margin="5">
-            <Button Click="NewGameClick"
-              VerticalAlignment="Center"
-              Content="{Binding rsStartNewGame, Source={StaticResource LocStrings}}"
-              Width="85" />
-        </StackPanel>
-        <StackPanel Grid.Column="2" HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Orientation="Horizontal" Margin="12,0,82,0">
+                Orientation="Horizontal" Margin="0,0,22,0" Grid.ColumnSpan="2" Width="112">
             <TextBlock FontSize="40"
                  FontWeight="Bold"
                  Text="{Binding Whites}"
                  Foreground="Silver" />
             <TextBlock FontSize="40"
                  FontWeight="Bold"
-                 Foreground="Gray"><Run Text=":" /></TextBlock>
+                 Foreground="Gray">
+                <Run Text=":" />
+            </TextBlock>
             <TextBlock FontSize="40"
                  FontWeight="Bold"
                  Text="{Binding Blacks}" />

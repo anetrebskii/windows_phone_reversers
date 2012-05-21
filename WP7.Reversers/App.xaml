@@ -4,13 +4,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
-    xmlns:i="clr-namespace:System.Reflection.Emit;assembly=mscorlib">
+    xmlns:i="clr-namespace:System.Reflection.Emit;assembly=mscorlib" xmlns:resx="clr-namespace:Reversi.Resources"
+    xmlns:Core="clr-namespace:WP7.Reversers.Core">
 
     <!--Application Resources-->
     <Application.Resources>
-        <!--<resx:Strings x:Key="LocStrings" />-->
+        <Core:LocalizedStrings xmlns:local="clr-namespace:WP7.Reversers.Core" x:Key="LocalizedStrings" />
+        
         <ControlTemplate x:Key="AquaButton"
-                     TargetType="i:Label">
+                     TargetType="TextBlock">
             <Grid x:Name="Grid"
             Width="40"
             Height="40"
@@ -46,8 +48,8 @@
                         </TransformGroup>
                     </Rectangle.RenderTransform>
                 </Rectangle>
-                <Rectangle Stroke="{TemplateBinding BorderBrush}"
-                   Fill="{TemplateBinding Background}"
+                <Rectangle 
+                   
                    RadiusX="20"
                    RadiusY="20"
                    Margin="1,1,1,1"

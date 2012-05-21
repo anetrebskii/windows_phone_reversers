@@ -151,4 +151,10 @@ Are you sure, you want to start a new one?</value>
   <data name="rsSelectPlayers" xml:space="preserve">
     <value>Please select game players:</value>
   </data>
+  <data name="rsUserVsAI" xml:space="preserve">
+    <value>PC vs AI</value>
+  </data>
+  <data name="rsUserVsUser" xml:space="preserve">
+    <value>PC vs PC</value>
+  </data>
 </root>
