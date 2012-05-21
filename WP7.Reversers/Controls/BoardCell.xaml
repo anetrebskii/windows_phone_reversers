@@ -35,6 +35,31 @@
 							</DoubleAnimationUsingKeyFrames>
 						</Storyboard>
 					</VisualTransition>
+					<VisualTransition GeneratedDuration="0"/>
+                    <VisualTransition GeneratedDuration="0:0:0.35" To="White">
+						<Storyboard>
+							<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse"/>
+							<DoubleAnimation Duration="0:0:0.35" To="0.334" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="ellipse"/>
+							<DoubleAnimation Duration="0:0:0.35" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="ellipse"/>
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="ellipse">
+								<EasingDoubleKeyFrame KeyTime="0" Value="90"/>
+								<EasingDoubleKeyFrame KeyTime="0:0:0.35" Value="0"/>
+							</DoubleAnimationUsingKeyFrames>
+							<ColorAnimation Duration="0" To="#FFF4F4F5" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
+						</Storyboard>
+					</VisualTransition>
+                    <VisualTransition GeneratedDuration="0:0:0.35" To="Black">
+                    	<Storyboard>
+                    		<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse"/>
+                    		<DoubleAnimation Duration="0:0:0.35" To="0.334" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="ellipse"/>
+                    		<DoubleAnimation Duration="0:0:0.35" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="ellipse"/>
+                    		<ColorAnimation Duration="0" To="Black" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse"/>
+                    		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="ellipse">
+                    			<EasingDoubleKeyFrame KeyTime="0" Value="90"/>
+                    			<EasingDoubleKeyFrame KeyTime="0:0:0.35" Value="0"/>
+                    		</DoubleAnimationUsingKeyFrames>
+                    	</Storyboard>
+                    </VisualTransition>
 				</VisualStateGroup.Transitions>
 				<VisualState x:Name="White">
 					<Storyboard>
