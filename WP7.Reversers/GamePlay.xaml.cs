@@ -21,7 +21,8 @@ namespace WP7.Reversers
         public MainPage()
         {
             InitializeComponent();
-
+			VisualStateManager.GoToState(whiteChip, "White", false);
+			VisualStateManager.GoToState(blackChip, "Black", false);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

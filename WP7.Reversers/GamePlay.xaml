@@ -1,58 +1,78 @@
-﻿<phone:PhoneApplicationPage 
-    x:Class="WP7.Reversers.MainPage"
+﻿<phone:PhoneApplicationPage
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:WP7.Reversers" 
+    x:Class="WP7.Reversers.MainPage"
     mc:Ignorable="d" FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True" d:DesignHeight="696" d:DesignWidth="480">
 
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="First Action" />
+                <shell:ApplicationBarMenuItem Text="Second Action" />
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid HorizontalAlignment="Center"
         VerticalAlignment="Center">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="133*" />
-            <ColumnDefinition Width="30" />
-            <ColumnDefinition Width="104" />
-            <ColumnDefinition Width="133*" />
+            <ColumnDefinition Width="170" />
+            <ColumnDefinition Width="134" />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="60"/>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid Grid.ColumnSpan="4"
-          Grid.Row="2" Margin="0,0,40,0">
+        <Grid Grid.ColumnSpan="3"
+          Grid.Row="2" Margin="40,1,20,-1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid x:Name="_board"
             ShowGridLines="True"
             UseLayoutRounding="True"
             MouseLeftButtonUp="_board_MouseLeftButtonUp"
             Height="400"
-            Width="400">
+            Width="400" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
+                	<RowDefinition />
+                	<RowDefinition />
+                	<RowDefinition />
+                	<RowDefinition />
+                	<RowDefinition />
+                	<RowDefinition />
+                	<RowDefinition />
+                	<RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
+                	<ColumnDefinition />
+                	<ColumnDefinition />
+                	<ColumnDefinition />
+                	<ColumnDefinition />
+                	<ColumnDefinition />
+                	<ColumnDefinition />
+                	<ColumnDefinition />
+                	<ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.984,0.983"
@@ -73,46 +93,22 @@
                 </Grid.Background>
             </Grid>
         </Grid>
-
-        <TextBlock VerticalAlignment="Center"
-               Grid.Column="3"
-               HorizontalAlignment="Right"
-               Text="{Binding Status}"
-               Margin="5" />
         <StackPanel Grid.Column="1" HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Orientation="Horizontal" Margin="0,0,22,0" Grid.ColumnSpan="2" Width="112">
+                Orientation="Horizontal" Width="112" Grid.Row="1">
             <TextBlock FontSize="40"
                  FontWeight="Bold"
                  Text="{Binding Whites}"
                  Foreground="Silver" />
             <TextBlock FontSize="40"
                  FontWeight="Bold"
-                 Foreground="Gray">
-                <Run Text=":" />
-            </TextBlock>
+                 Foreground="Gray"><Run Text=":" /></TextBlock>
             <TextBlock FontSize="40"
                  FontWeight="Bold"
                  Text="{Binding Blacks}" />
         </StackPanel>
+    	<local:BoardCell Margin="0,0,0,12" x:Name="whiteChip" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment"/>
+    	<local:BoardCell Margin="56,-24,0,0" x:Name="blackChip" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    	<TextBlock x:Name="lblStep" Margin="8,0,0,3" TextWrapping="Wrap" Text="{Binding Status}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="418" Grid.ColumnSpan="3"/>
     </Grid>
-    <!--Sample code showing usage of ApplicationBar-->
-    <!--<phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
-                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
-            </shell:ApplicationBar.MenuItems>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>-->
-    <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar>
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="First Action" />
-                <shell:ApplicationBarMenuItem Text="Second Action" />
-            </shell:ApplicationBar.MenuItems>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>
