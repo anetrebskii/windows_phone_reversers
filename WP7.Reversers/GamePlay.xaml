@@ -34,8 +34,7 @@
     </phone:PhoneApplicationPage.ApplicationBar>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid HorizontalAlignment="Center"
-        VerticalAlignment="Center">
+    <Grid HorizontalAlignment="Center" Margin="0,147,0,-3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="170" />
             <ColumnDefinition Width="134" />
@@ -47,13 +46,13 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid Grid.ColumnSpan="3"
-          Grid.Row="2" Margin="40,1,20,-1" HorizontalAlignment="Center" VerticalAlignment="Center">
+          Grid.Row="2" Margin="0" VerticalAlignment="Center" d:LayoutOverrides="Width">
             <Grid x:Name="_board"
             ShowGridLines="True"
             UseLayoutRounding="True"
             MouseLeftButtonUp="_board_MouseLeftButtonUp"
-            Height="400"
-            Width="400" HorizontalAlignment="Center">
+            Height="450"
+            Width="450" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                 	<RowDefinition />
                 	<RowDefinition />
@@ -107,8 +106,8 @@
                  FontWeight="Bold"
                  Text="{Binding Blacks}" />
         </StackPanel>
-    	<local:BoardCell Margin="0,0,0,12" x:Name="whiteChip" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment"/>
-    	<local:BoardCell Margin="56,-24,0,0" x:Name="blackChip" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-    	<TextBlock x:Name="lblStep" Margin="8,0,0,3" TextWrapping="Wrap" Text="{Binding Status}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="418" Grid.ColumnSpan="3"/>
+    	<local:BoardCell Margin="0" x:Name="whiteChip" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
+    	<local:BoardCell Margin="0" x:Name="blackChip" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    	<TextBlock x:Name="lblStep" Margin="0" TextWrapping="Wrap" Text="{Binding Status}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="418" Grid.ColumnSpan="3" Height="20"/>
     </Grid>
 </phone:PhoneApplicationPage>

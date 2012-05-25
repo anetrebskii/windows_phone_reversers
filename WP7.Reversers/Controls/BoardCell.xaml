@@ -7,7 +7,7 @@
 	x:Class="WP7.Reversers.BoardCell"
 	d:DesignWidth="480" d:DesignHeight="800">
 
-	<Grid x:Name="LayoutRoot" Background="Transparent" Width="40" Height="40">
+	<Grid x:Name="LayoutRoot" Background="Transparent" Width="50" Height="50">
 		<VisualStateManager.VisualStateGroups>
 			<VisualStateGroup x:Name="VisualStateGroup">
 				<VisualStateGroup.Transitions>
@@ -35,18 +35,62 @@
 							</DoubleAnimationUsingKeyFrames>
 						</Storyboard>
 					</VisualTransition>
-					<VisualTransition GeneratedDuration="0"/>
+					<VisualTransition GeneratedDuration="0">
+						<Storyboard>
+							<DoubleAnimation Duration="0" To="50" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.HorizontalAlignment)" Storyboard.TargetName="ellipse">
+								<DiscreteObjectKeyFrame KeyTime="0">
+									<DiscreteObjectKeyFrame.Value>
+										<HorizontalAlignment>Center</HorizontalAlignment>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.VerticalAlignment)" Storyboard.TargetName="ellipse">
+								<DiscreteObjectKeyFrame KeyTime="0">
+									<DiscreteObjectKeyFrame.Value>
+										<VerticalAlignment>Center</VerticalAlignment>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualTransition>
                     <VisualTransition GeneratedDuration="0:0:0.35" To="White">
 						<Storyboard>
-							<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse"/>
-							<DoubleAnimation Duration="0:0:0.35" To="0.334" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="ellipse"/>
-							<DoubleAnimation Duration="0:0:0.35" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="ellipse"/>
-							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="ellipse">
-								<EasingDoubleKeyFrame KeyTime="0" Value="90"/>
-								<EasingDoubleKeyFrame KeyTime="0:0:0.35" Value="0"/>
-							</DoubleAnimationUsingKeyFrames>
-							<ColorAnimation Duration="0" To="#FFF4F4F5" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
-						</Storyboard>
+                    		<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse"/>
+                    		<DoubleAnimation Duration="0:0:0.35" To="0.334" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="ellipse"/>
+                    		<DoubleAnimation Duration="0:0:0.35" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="ellipse"/>
+                    		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="ellipse">
+                    			<EasingDoubleKeyFrame KeyTime="0" Value="90"/>
+                    			<EasingDoubleKeyFrame KeyTime="0:0:0.35" Value="0"/>
+                    		</DoubleAnimationUsingKeyFrames>
+                    		<ColorAnimation Duration="0" To="#FFF4F4F5" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
+                    		<DoubleAnimation Duration="0:0:0.35" From="50" To="50" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="ellipse"/>
+                    		<DoubleAnimation Duration="0:0:0.35" From="50" To="50" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="ellipse"/>
+                    		<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.HorizontalAlignment)" Storyboard.TargetName="ellipse">
+                    			<DiscreteObjectKeyFrame KeyTime="0">
+                    				<DiscreteObjectKeyFrame.Value>
+                    					<HorizontalAlignment>Center</HorizontalAlignment>
+                    				</DiscreteObjectKeyFrame.Value>
+                    			</DiscreteObjectKeyFrame>
+                    			<DiscreteObjectKeyFrame KeyTime="0:0:0.35">
+                    				<DiscreteObjectKeyFrame.Value>
+                    					<HorizontalAlignment>Stretch</HorizontalAlignment>
+                    				</DiscreteObjectKeyFrame.Value>
+                    			</DiscreteObjectKeyFrame>
+                    		</ObjectAnimationUsingKeyFrames>
+                    		<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.VerticalAlignment)" Storyboard.TargetName="ellipse">
+                    			<DiscreteObjectKeyFrame KeyTime="0">
+                    				<DiscreteObjectKeyFrame.Value>
+                    					<VerticalAlignment>Center</VerticalAlignment>
+                    				</DiscreteObjectKeyFrame.Value>
+                    			</DiscreteObjectKeyFrame>
+                    			<DiscreteObjectKeyFrame KeyTime="0:0:0.35">
+                    				<DiscreteObjectKeyFrame.Value>
+                    					<VerticalAlignment>Top</VerticalAlignment>
+                    				</DiscreteObjectKeyFrame.Value>
+                    			</DiscreteObjectKeyFrame>
+                    		</ObjectAnimationUsingKeyFrames>
+                    	</Storyboard>
 					</VisualTransition>
                     <VisualTransition GeneratedDuration="0:0:0.35" To="Black">
                     	<Storyboard>
@@ -58,6 +102,32 @@
                     			<EasingDoubleKeyFrame KeyTime="0" Value="90"/>
                     			<EasingDoubleKeyFrame KeyTime="0:0:0.35" Value="0"/>
                     		</DoubleAnimationUsingKeyFrames>
+                    		<DoubleAnimation Duration="0:0:0.35" From="50" To="50" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="ellipse"/>
+                    		<DoubleAnimation Duration="0:0:0.35" From="50" To="50" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="ellipse"/>
+                    		<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.VerticalAlignment)" Storyboard.TargetName="ellipse">
+                    			<DiscreteObjectKeyFrame KeyTime="0">
+                    				<DiscreteObjectKeyFrame.Value>
+                    					<VerticalAlignment>Center</VerticalAlignment>
+                    				</DiscreteObjectKeyFrame.Value>
+                    			</DiscreteObjectKeyFrame>
+                    			<DiscreteObjectKeyFrame KeyTime="0:0:0.35">
+                    				<DiscreteObjectKeyFrame.Value>
+                    					<VerticalAlignment>Top</VerticalAlignment>
+                    				</DiscreteObjectKeyFrame.Value>
+                    			</DiscreteObjectKeyFrame>
+                    		</ObjectAnimationUsingKeyFrames>
+                    		<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.HorizontalAlignment)" Storyboard.TargetName="ellipse">
+                    			<DiscreteObjectKeyFrame KeyTime="0">
+                    				<DiscreteObjectKeyFrame.Value>
+                    					<HorizontalAlignment>Center</HorizontalAlignment>
+                    				</DiscreteObjectKeyFrame.Value>
+                    			</DiscreteObjectKeyFrame>
+                    			<DiscreteObjectKeyFrame KeyTime="0:0:0.35">
+                    				<DiscreteObjectKeyFrame.Value>
+                    					<HorizontalAlignment>Stretch</HorizontalAlignment>
+                    				</DiscreteObjectKeyFrame.Value>
+                    			</DiscreteObjectKeyFrame>
+                    		</ObjectAnimationUsingKeyFrames>
                     	</Storyboard>
                     </VisualTransition>
 				</VisualStateGroup.Transitions>
@@ -66,6 +136,22 @@
 						<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
 						<DoubleAnimation Duration="0" To="0.334" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
 						<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.VerticalAlignment)" Storyboard.TargetName="ellipse">
+							<DiscreteObjectKeyFrame KeyTime="0">
+								<DiscreteObjectKeyFrame.Value>
+									<VerticalAlignment>Center</VerticalAlignment>
+								</DiscreteObjectKeyFrame.Value>
+							</DiscreteObjectKeyFrame>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.HorizontalAlignment)" Storyboard.TargetName="ellipse">
+							<DiscreteObjectKeyFrame KeyTime="0">
+								<DiscreteObjectKeyFrame.Value>
+									<HorizontalAlignment>Center</HorizontalAlignment>
+								</DiscreteObjectKeyFrame.Value>
+							</DiscreteObjectKeyFrame>
+						</ObjectAnimationUsingKeyFrames>
+						<DoubleAnimation Duration="0" To="50" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
+						<DoubleAnimation Duration="0" To="50" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
 					</Storyboard>
 				</VisualState>
 				<VisualState x:Name="Black">
@@ -74,11 +160,27 @@
 						<DoubleAnimation Duration="0" To="0.334" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
 						<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
 						<ColorAnimation Duration="0" To="Black" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.HorizontalAlignment)" Storyboard.TargetName="ellipse">
+							<DiscreteObjectKeyFrame KeyTime="0">
+								<DiscreteObjectKeyFrame.Value>
+									<HorizontalAlignment>Center</HorizontalAlignment>
+								</DiscreteObjectKeyFrame.Value>
+							</DiscreteObjectKeyFrame>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.VerticalAlignment)" Storyboard.TargetName="ellipse">
+							<DiscreteObjectKeyFrame KeyTime="0">
+								<DiscreteObjectKeyFrame.Value>
+									<VerticalAlignment>Center</VerticalAlignment>
+								</DiscreteObjectKeyFrame.Value>
+							</DiscreteObjectKeyFrame>
+						</ObjectAnimationUsingKeyFrames>
+						<DoubleAnimation Duration="0" To="50" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
+						<DoubleAnimation Duration="0" To="50" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
 					</Storyboard>
 				</VisualState>
 			</VisualStateGroup>
 		</VisualStateManager.VisualStateGroups>
-		<Ellipse x:Name="ellipse" Fill="#FFF4F4F5" Height="40" Opacity="0" Stroke="Black" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="40" d:LayoutOverrides="HorizontalAlignment">
+		<Ellipse x:Name="ellipse" Fill="#FFF4F4F5" Height="50" Opacity="0" Stroke="Black" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Width="50" HorizontalAlignment="Center">
 			<Ellipse.Projection>
 				<PlaneProjection/>
 			</Ellipse.Projection>
