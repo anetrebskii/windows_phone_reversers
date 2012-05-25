@@ -16,20 +16,14 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        <StackPanel x:Name="TitlePanel" Margin="12,-0.5,0,28" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button Content="{Binding Path=LocalizedResources.rsUserVsUser, Source={StaticResource LocalizedStrings}}" Height="93" Name="btnUserVsUser" Width="397" Click="btnUserVsUser_Click" />
             <Button Content="{Binding Path=LocalizedResources.rsUserVsAI, Source={StaticResource LocalizedStrings}}" Height="87" Name="btnUserVsAI" Width="409" Click="btnUserVsAI_Click" />
-        </StackPanel>
-
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"></Grid>
+        </StackPanel>       
     </Grid>
  
     <!--Sample code showing usage of ApplicationBar-->

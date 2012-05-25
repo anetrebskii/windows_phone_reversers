@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:WP7.Reversers" 
+    xmlns:Microsoft_Advertising_Mobile_UI="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI" 
     x:Class="WP7.Reversers.MainPage"
     mc:Ignorable="d" FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -13,40 +14,27 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True" d:DesignHeight="696" d:DesignWidth="480">
 
-    <!--Sample code showing usage of ApplicationBar-->
-    <!--<phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
-                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
-            </shell:ApplicationBar.MenuItems>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>-->
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="First Action" />
-                <shell:ApplicationBarMenuItem Text="Second Action" />
-            </shell:ApplicationBar.MenuItems>
+
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid HorizontalAlignment="Center" Margin="0,147,0,-3">
+    <Grid HorizontalAlignment="Center" Margin="0,0,0,3" VerticalAlignment="Bottom" Height="685" Width="475">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="170" />
-            <ColumnDefinition Width="134" />
+            <ColumnDefinition Width="168.5" />
+            <ColumnDefinition Width="135.5" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="85" />
+            <RowDefinition Height="50.5"/>
+            <RowDefinition Height="69" />
+            <RowDefinition Height="335.5"/>
         </Grid.RowDefinitions>
         <Grid Grid.ColumnSpan="3"
-          Grid.Row="2" Margin="0" VerticalAlignment="Center" d:LayoutOverrides="Width">
+          Grid.Row="3" Margin="0,13,0,-132" HorizontalAlignment="Center">
             <Grid x:Name="_board"
             ShowGridLines="True"
             UseLayoutRounding="True"
@@ -94,7 +82,7 @@
         </Grid>
         <StackPanel Grid.Column="1" HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Orientation="Horizontal" Width="112" Grid.Row="1">
+                Orientation="Horizontal" Grid.Row="2">
             <TextBlock FontSize="40"
                  FontWeight="Bold"
                  Text="{Binding Whites}"
@@ -106,8 +94,11 @@
                  FontWeight="Bold"
                  Text="{Binding Blacks}" />
         </StackPanel>
-    	<local:BoardCell Margin="0" x:Name="whiteChip" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
-    	<local:BoardCell Margin="0" x:Name="blackChip" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    	<TextBlock x:Name="lblStep" Margin="0" TextWrapping="Wrap" Text="{Binding Status}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="418" Grid.ColumnSpan="3" Height="20"/>
+    	<local:BoardCell Margin="0" x:Name="whiteChip" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center"/>
+    	<local:BoardCell Margin="0" x:Name="blackChip" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    	<Microsoft_Advertising_Mobile_UI:AdControl ApplicationId="test_client" AdUnitId="Image480_80" Grid.ColumnSpan="3" Height="80" Margin="0" Width="480" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    	<Border BorderBrush="Black" BorderThickness="1" Height="45" Margin="0" Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="3" HorizontalAlignment="Center" Width="375">
+    		<TextBlock x:Name="lblStep" Margin="0" TextWrapping="Wrap" Text="{Binding Status}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45"/>
+    	</Border>
     </Grid>
 </phone:PhoneApplicationPage>

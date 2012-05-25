@@ -17,20 +17,16 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">        
         
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.37*"/>
+			<RowDefinition Height="0.63*"/>
         </Grid.RowDefinitions>
 
+<TextBlock x:Name="PageTitle" Text="{Binding Path=LocalizedResources.rsTitle, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <!--TitlePanel содержит имя приложения и заголовок страницы-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            
-            <TextBlock x:Name="ApplicationTitle" Text="МОЕ ПРИЛОЖЕНИЕ" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="Реверсы" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-            <Button Content="Начать игру" Click="btnStartGame_Click" Height="76" Name="btnStartGame" Width="259" />
+        <StackPanel x:Name="TitlePanel" Grid.Row="1" Margin="12,17,0,28" VerticalAlignment="Top" HorizontalAlignment="Center">            
+            <Button Content="{Binding LocalizedResources.rsStartGame, Source={StaticResource LocalizedStrings}}" Click="btnStartGame_Click" Height="76" x:Name="btnStartGame" Width="259" />
         </StackPanel>
-        
-        <!--ContentPanel – поместите здесь дополнительное содержимое-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"></Grid>
+
     </Grid>
  
     <!--Пример кода, иллюстрирующий использование ApplicationBar-->

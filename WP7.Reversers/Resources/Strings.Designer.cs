@@ -116,11 +116,38 @@ namespace WP7.Reversers.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Restart game.
+        /// </summary>
+        public static string rsRestartGame {
+            get {
+                return ResourceManager.GetString("rsRestartGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Main menu.
+        /// </summary>
+        public static string rsReturnToMainMenu {
+            get {
+                return ResourceManager.GetString("rsReturnToMainMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select game players:.
         /// </summary>
         public static string rsSelectPlayers {
             get {
                 return ResourceManager.GetString("rsSelectPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start game.
+        /// </summary>
+        public static string rsStartGame {
+            get {
+                return ResourceManager.GetString("rsStartGame", resourceCulture);
             }
         }
         
@@ -139,6 +166,15 @@ namespace WP7.Reversers.Resources {
         public static string rsTie {
             get {
                 return ResourceManager.GetString("rsTie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reversers.
+        /// </summary>
+        public static string rsTitle {
+            get {
+                return ResourceManager.GetString("rsTitle", resourceCulture);
             }
         }
         

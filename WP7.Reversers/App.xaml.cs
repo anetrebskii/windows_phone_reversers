@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -33,7 +35,7 @@ namespace WP7.Reversers
 
             // Standard Silverlight initialization
             InitializeComponent();
-
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU");
             // Phone-specific initialization
             InitializePhoneApplication();
 

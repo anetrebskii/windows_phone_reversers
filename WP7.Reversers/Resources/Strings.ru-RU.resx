@@ -157,4 +157,16 @@
   <data name="rsUserVsUser" xml:space="preserve">
     <value>Против человека</value>
   </data>
+  <data name="rsStartGame" xml:space="preserve">
+    <value>Начать игру</value>
+  </data>
+  <data name="rsTitle" xml:space="preserve">
+    <value>Реверсы</value>
+  </data>
+  <data name="rsRestartGame" xml:space="preserve">
+    <value>Начать заново</value>
+  </data>
+  <data name="rsReturnToMainMenu" xml:space="preserve">
+    <value>В главное меню</value>
+  </data>
 </root>

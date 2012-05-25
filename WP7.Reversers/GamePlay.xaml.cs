@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,8 +10,10 @@ using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
 using Reversi;
 using WP7.Reversers.Core;
+using WP7.Reversers.Resources;
 
 namespace WP7.Reversers
 {
@@ -21,26 +22,41 @@ namespace WP7.Reversers
         public MainPage()
         {
             InitializeComponent();
+            initializeApplicationBar();
 			VisualStateManager.GoToState(whiteChip, "White", false);
 			VisualStateManager.GoToState(blackChip, "Black", false);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);
-            String navigationMessage;
-            _gameMode = NavigationContext.QueryString[Consts.PARAM_WHO_PLAY] == Consts.USER_VS_USER ? 0 : 1;
-            
-            NewGame();
+            base.OnNavigatedTo(e);       
+            NewGamePrompt();
         }
+
+        private void initializeApplicationBar()
+        {
+            ApplicationBarMenuItem mnuRestartGame = new ApplicationBarMenuItem(Strings.rsRestartGame);
+            mnuRestartGame.Click += new EventHandler(mnuRestartGame_Click);
+            ApplicationBar.MenuItems.Add(mnuRestartGame);
+
+            ApplicationBarMenuItem mnuReturnToMainMenu = new ApplicationBarMenuItem(Strings.rsReturnToMainMenu);
+            mnuReturnToMainMenu.Click += new EventHandler(mnuReturnToMainMenu_Click);
+            ApplicationBar.MenuItems.Add(mnuReturnToMainMenu);
+        }
+
+        void mnuReturnToMainMenu_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MainMenu.xaml", UriKind.Relative));
+        }
+
+        void mnuRestartGame_Click(object sender, EventArgs e)
+        {
+            NewGamePrompt();
+        }   
 
         int _gameMode = 1;
         bool _fastAi = false;
 
-        void NewGameClick(object sender, RoutedEventArgs e)
-        {
-            NewGamePrompt();
-        }
 
         GamePlayer _black, _white;
         BoardCell[,] _cells;
@@ -48,7 +64,6 @@ namespace WP7.Reversers
         void NewGamePrompt()
         {
             _gameMode = NavigationContext.QueryString[Consts.PARAM_WHO_PLAY] == Consts.USER_VS_USER ? 0 : 1;
-            DataContext = _gameMode;
             NewGame();
         }
 
