@@ -12,7 +12,7 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True" d:DesignHeight="696" d:DesignWidth="480">
+    shell:SystemTray.IsVisible="True" d:DesignHeight="696" d:DesignWidth="480" Loaded="PhoneApplicationPage_Loaded">
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>

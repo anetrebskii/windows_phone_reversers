@@ -79,7 +79,9 @@
     </Compile>
     <Compile Include="Core\Consts.cs" />
     <Compile Include="Core\Game.cs" />
-    <Compile Include="Core\GameAI.cs" />
+    <Compile Include="Core\GameAIMedium.cs" />
+    <Compile Include="Core\GameAISimple.cs" />
+    <Compile Include="Core\GameAIHard.cs" />
     <Compile Include="Core\GamePC.cs" />
     <Compile Include="Core\GamePlayer.cs" />
     <Compile Include="Core\LocalizedStrings.cs" />
@@ -106,6 +108,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.ru-RU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SelectLevelPage.xaml.cs">
+      <DependentUpon>SelectLevelPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NewGamePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectLevelPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

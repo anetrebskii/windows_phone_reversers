@@ -63,8 +63,25 @@ namespace WP7.Reversers
 
         void NewGamePrompt()
         {
-            _gameMode = NavigationContext.QueryString[Consts.PARAM_WHO_PLAY] == Consts.USER_VS_USER ? 0 : 1;
-            NewGame();
+            if (NavigationContext.QueryString[Consts.PARAM_WHO_PLAY] == Consts.USER_VS_USER)
+                _gameMode = 0;
+
+            else
+            {
+                switch (NavigationContext.QueryString[Consts.PARAM_SELECT_LEVEL])
+                {
+                    case Consts.SIMPLE_LEVEL:
+                        _gameMode = 1;
+                        break;
+                    case Consts.MEDIUM_LEVEL:
+                        _gameMode = 2;
+                        break;
+                    case Consts.HARD_LEVEL:
+                        _gameMode = 3;
+                        break;
+                }
+            }
+            NewGame(); 
         }
 
         void NewGame()
@@ -80,19 +97,17 @@ namespace WP7.Reversers
                     _black = new GamePC();
                     break;
 
-                case 1://pc vs ai
+                case 1://pc vs aiSimple
                     _white = new GamePC();
-                    _black = new GameAI();
+                    _black = new GameAISimple();
                     break;
-
-                case 2://ai vs pc
-                    _white = new GameAI();
-                    _black = new GamePC();
+                case 2://pc vs aiMedium
+                    _white=new GamePC();
+                    _black=new GameAIMedium();
                     break;
-
-                case 3://ai vs ai
-                    _white = new GameAI();
-                    _black = new GameAI();
+                case 3://pc vs aiHard
+                    _white=new GamePC();
+                    _black=new GameAIHard();
                     break;
             }
 
@@ -151,6 +166,11 @@ namespace WP7.Reversers
             var c = new Position((int)(p.X / (_board.Width / 8)), (int)(p.Y / (_board.Height / 8)));
 
             pc.UserMove(c);
+        }
+
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

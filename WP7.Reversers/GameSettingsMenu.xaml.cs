@@ -28,7 +28,7 @@ namespace WP7.Reversers
 
         private void btnUserVsAI_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri(String.Format("/GamePlay.xaml?{0}={1}", Consts.PARAM_WHO_PLAY, Consts.USER_VS_AI), UriKind.Relative));
+            NavigationService.Navigate(new Uri(String.Format("/SelectLevelPage.xaml?{0}", Consts.PARAM_SELECT_LEVEL), UriKind.Relative));
         }
     }
 }

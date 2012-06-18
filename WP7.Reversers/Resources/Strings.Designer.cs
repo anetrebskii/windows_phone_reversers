@@ -196,6 +196,21 @@ namespace WP7.Reversers.Resources {
             }
         }
         
+        public static string rsSimpleLevel {
+            get {
+                return ResourceManager.GetString("rsSimpleLevel", resourceCulture);
+            }
+        }
+		 public static string rsMediumLevel {
+            get {
+                return ResourceManager.GetString("rsMediumLevel", resourceCulture);
+            }
+        }
+		public static string rsHardLevel {
+            get {
+                return ResourceManager.GetString("rsHardLevel", resourceCulture);
+            }
+        }
         /// <summary>
         ///   Looks up a localized string similar to White move.
         /// </summary>
