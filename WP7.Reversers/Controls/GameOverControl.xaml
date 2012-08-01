@@ -1,0 +1,17 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:WP7.Reversers"
+	mc:Ignorable="d"
+	x:Class="WP7.Reversers.GameOverControl"
+	d:DesignWidth="340" d:DesignHeight="120">
+
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<Image Source="/WP7.Reversers;component/Images/GameoverBackground.png" Stretch="Fill"/>
+		<TextBlock Margin="114,27,114,30" x:Name="txtWinText" TextWrapping="Wrap" Style="{StaticResource BoardText}" FontSize="46.667" Text="Win!" d:LayoutOverrides="Height" HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" FontWeight="Bold"/>
+		<local:BoardCell HorizontalAlignment="Left" x:Name="leftChip" Margin="31,28,0,38"/>
+        <local:BoardCell HorizontalAlignment="Right" x:Name="rightChip" Margin="0,28,27,38" Width="60"/>
+	</Grid>
+</UserControl>

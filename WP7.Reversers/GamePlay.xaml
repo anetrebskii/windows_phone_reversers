@@ -6,8 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:WP7.Reversers" 
-    xmlns:Microsoft_Advertising_Mobile_UI="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI" 
-    x:Class="WP7.Reversers.MainPage"
+    xmlns:Microsoft_Advertising_Mobile_UI="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"
+    xmlns:Controls="clr-namespace:WP7.Reversers.Controls" x:Class="WP7.Reversers.MainPage"
     mc:Ignorable="d" FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -23,82 +23,67 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid HorizontalAlignment="Center" Margin="0,0,0,3" VerticalAlignment="Bottom" Height="685" Width="475">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="168.5" />
-            <ColumnDefinition Width="135.5" />
-            <ColumnDefinition />
+            <ColumnDefinition Width="475" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="85" />
-            <RowDefinition Height="50.5"/>
-            <RowDefinition Height="69" />
+            <RowDefinition Height="84" />
+            <RowDefinition Height="121" />
             <RowDefinition Height="335.5"/>
         </Grid.RowDefinitions>
-        <Grid Grid.ColumnSpan="3"
-          Grid.Row="3" Margin="0,13,0,-132" HorizontalAlignment="Center">
+        <Microsoft_Advertising_Mobile_UI:AdControl ApplicationId="ecad7892-239e-419a-801c-99459f7bd8e7" AdUnitId="92311" Grid.ColumnSpan="3" Height="80" Margin="0" Width="480" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Border BorderBrush="Black" BorderThickness="0" Margin="0,0,0,-142.5" Grid.Row="2">
+        	<Border.Background>
+        		<ImageBrush ImageSource="Images/board.jpg" Stretch="Fill"/>
+        	</Border.Background>
             <Grid x:Name="_board"
-            ShowGridLines="True"
-            UseLayoutRounding="True"
-            MouseLeftButtonUp="_board_MouseLeftButtonUp"
-            Height="450"
-            Width="450" HorizontalAlignment="Center">
+    				UseLayoutRounding="True"
+					Background="Transparent"
+    				Width="455" HorizontalAlignment="Center" Margin="0,7" 
+					MouseLeftButtonDown="_board_MouseLeftButtonDown" Height="460">
                 <Grid.RowDefinitions>
-                	<RowDefinition />
-                	<RowDefinition />
-                	<RowDefinition />
-                	<RowDefinition />
-                	<RowDefinition />
-                	<RowDefinition />
-                	<RowDefinition />
-                	<RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                	<ColumnDefinition />
-                	<ColumnDefinition />
-                	<ColumnDefinition />
-                	<ColumnDefinition />
-                	<ColumnDefinition />
-                	<ColumnDefinition />
-                	<ColumnDefinition />
-                	<ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="0.984,0.983"
-                               StartPoint="0.025,0.024">
-                        <GradientStop Color="#4CA2A2A2"
-                          Offset="0" />
-                        <GradientStop Color="#4CA2A2A2"
-                          Offset="1" />
-                        <GradientStop Color="#60B4B4B4"
-                          Offset="0.247" />
-                        <GradientStop Color="#60FFFFFF"
-                          Offset="0.837" />
-                        <GradientStop Color="#60FFFFFF"
-                          Offset="0.423" />
-                        <GradientStop Color="#60E7E7E7"
-                          Offset="0.709" />
-                    </LinearGradientBrush>
-                </Grid.Background>
             </Grid>
-        </Grid>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Orientation="Horizontal" Grid.Row="2">
-            <TextBlock FontSize="40"
-                 FontWeight="Bold"
-                 Text="{Binding Whites}"
-                 Foreground="Silver" />
-            <TextBlock FontSize="40"
-                 FontWeight="Bold"
-                 Foreground="Gray"><Run Text=":" /></TextBlock>
-            <TextBlock FontSize="40"
-                 FontWeight="Bold"
-                 Text="{Binding Blacks}" />
-        </StackPanel>
-    	<local:BoardCell Margin="0" x:Name="whiteChip" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center"/>
-    	<local:BoardCell Margin="0" x:Name="blackChip" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    	<Microsoft_Advertising_Mobile_UI:AdControl ApplicationId="test_client" AdUnitId="Image480_80" Grid.ColumnSpan="3" Height="80" Margin="0" Width="480" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    	<Border BorderBrush="Black" BorderThickness="1" Height="45" Margin="0" Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="3" HorizontalAlignment="Center" Width="375">
-    		<TextBlock x:Name="lblStep" Margin="0" TextWrapping="Wrap" Text="{Binding Status}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45"/>
-    	</Border>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="0" Grid.Row="1">
+        	<Border.Background>
+        		<ImageBrush Stretch="Fill" ImageSource="Images/top_panel.jpg"/>
+        	</Border.Background>
+        	<StackPanel Margin="0,30,0,0" Orientation="Horizontal" HorizontalAlignment="Center" UseLayoutRounding="True">
+        		<Image x:Name="imgWhite" Margin="0" Source="Images/white.png" Stretch="Fill" RenderTransformOrigin="-1.25,0.509" Height="58"/>
+        		<StackPanel
+        			Orientation="Horizontal" d:LayoutOverrides="GridBox" Margin="0,0,0,15">
+        			<TextBlock
+        				FontWeight="Bold"
+        				Text="{Binding Whites}"
+        				Foreground="#FF210000" Opacity="0.58" Style="{StaticResource ScoreGameLabel}" />
+        			<TextBlock
+        				FontWeight="Bold"
+        				Foreground="#FF210000" Opacity="0.58" Style="{StaticResource ScoreGameLabel}" Text=":"/>
+        			<TextBlock
+        				FontWeight="Bold"
+        				Text="{Binding Blacks}" Foreground="#FF210000" Opacity="0.58" Style="{StaticResource ScoreGameLabel}" />
+        		</StackPanel>
+        		<Image x:Name="imgBlack" Margin="0" Source="Images/black.png" Stretch="Fill" Height="58"/>
+        	</StackPanel>
+        </Border>
+        <local:GameOverControl WinPlayer="{Binding WinPlayer}" Visibility="{Binding GameOver, Converter={StaticResource BoolToVisibilityConverter}}" HorizontalAlignment="Right" Margin="0,0,30,29.5" VerticalAlignment="Bottom" Width="404" Height="145" Grid.Row="2"/>
     </Grid>
 </phone:PhoneApplicationPage>

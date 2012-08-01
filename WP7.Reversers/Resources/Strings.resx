@@ -154,13 +154,13 @@ Are you sure, you want to start a new one?</value>
   <data name="rsUserVsAI" xml:space="preserve">
     <value>PC vs AI</value>
   </data>
-   <data name="rsSimpleLevel" xml:space="preserve">
+  <data name="rsSimpleLevel" xml:space="preserve">
     <value>Newcomer</value>
   </data>
-   <data name="rsMediumLevel" xml:space="preserve">
+  <data name="rsMediumLevel" xml:space="preserve">
     <value>Amateur</value>
   </data>
-   <data name="rsHardLevel" xml:space="preserve">
+  <data name="rsHardLevel" xml:space="preserve">
     <value>Professional</value>
   </data>
   <data name="rsUserVsUser" xml:space="preserve">
@@ -177,5 +177,8 @@ Are you sure, you want to start a new one?</value>
   </data>
   <data name="rsReturnToMainMenu" xml:space="preserve">
     <value>Main menu</value>
+  </data>
+  <data name="rsWin" xml:space="preserve">
+    <value>Win!</value>
   </data>
 </root>

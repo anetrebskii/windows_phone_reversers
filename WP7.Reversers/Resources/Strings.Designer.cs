@@ -107,6 +107,24 @@ namespace WP7.Reversers.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Professional.
+        /// </summary>
+        public static string rsHardLevel {
+            get {
+                return ResourceManager.GetString("rsHardLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Amateur.
+        /// </summary>
+        public static string rsMediumLevel {
+            get {
+                return ResourceManager.GetString("rsMediumLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string rsOK {
@@ -139,6 +157,15 @@ namespace WP7.Reversers.Resources {
         public static string rsSelectPlayers {
             get {
                 return ResourceManager.GetString("rsSelectPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Newcomer.
+        /// </summary>
+        public static string rsSimpleLevel {
+            get {
+                return ResourceManager.GetString("rsSimpleLevel", resourceCulture);
             }
         }
         
@@ -196,21 +223,6 @@ namespace WP7.Reversers.Resources {
             }
         }
         
-        public static string rsSimpleLevel {
-            get {
-                return ResourceManager.GetString("rsSimpleLevel", resourceCulture);
-            }
-        }
-		 public static string rsMediumLevel {
-            get {
-                return ResourceManager.GetString("rsMediumLevel", resourceCulture);
-            }
-        }
-		public static string rsHardLevel {
-            get {
-                return ResourceManager.GetString("rsHardLevel", resourceCulture);
-            }
-        }
         /// <summary>
         ///   Looks up a localized string similar to White move.
         /// </summary>
@@ -226,6 +238,15 @@ namespace WP7.Reversers.Resources {
         public static string rsWhitesWon {
             get {
                 return ResourceManager.GetString("rsWhitesWon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Win!.
+        /// </summary>
+        public static string rsWin {
+            get {
+                return ResourceManager.GetString("rsWin", resourceCulture);
             }
         }
     }

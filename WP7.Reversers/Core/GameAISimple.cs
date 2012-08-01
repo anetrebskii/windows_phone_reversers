@@ -5,8 +5,6 @@ namespace Reversi
 {
   public class GameAISimple : GamePlayer
   {
-    static int[,] _costs = new int[8, 8];//по-хорошему надо нахрен убрать этот массив вообще
-
     static Random _soul = new Random();
 
     /// <summary>
@@ -18,7 +16,7 @@ namespace Reversi
       var moves = from c in Game.GetFreeCells()
                   let score = Game.CheckScoreFor(c, Player)
                   where score > 0
-                  group c by 100 * _costs[c.X, c.Y] - score;
+                  group c by score;
 
       var bestMoves = (from m in moves orderby m.Key select m).
                        First().

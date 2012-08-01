@@ -14,21 +14,20 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot представляет корневую сетку, где размещается все содержимое страницы-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot">
+    	<Grid.Background>
+    		<ImageBrush Stretch="Fill" ImageSource="/Images/background_page.jpg"/>
+    	</Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <!--TitlePanel содержит имя приложения и заголовок страницы-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28"></StackPanel>
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+        	<Button Content="{Binding LocalizedResources.rsSimpleLevel, Source={StaticResource LocalizedStrings}}" Height="93" Margin="0" x:Name="btnSimpleLevel" Width="397" Click="btnSimpleLevel_Click" d:LayoutOverrides="VerticalAlignment, Height" Style="{StaticResource MenuButton}" />
+        	<Button Content="{Binding LocalizedResources.rsHardLevel, Source={StaticResource LocalizedStrings}}" Height="93" Margin="0" x:Name="btnHardLevel" Width="397" Click="btnHardLevel_Click" Style="{StaticResource MenuButton}" d:LayoutOverrides="VerticalAlignment, Height" /></StackPanel>
 
         <!--ContentPanel – поместите здесь дополнительное содержимое-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button Content="{Binding Path=LocalizedResources.rsSimpleLevel, Source={StaticResource LocalizedStrings}}" Height="93" Margin="27,216,32,414" Name="btnSimpleLevel" Width="397" Click="btnSimpleLevel_Click" />
-            <Button Content="{Binding Path=LocalizedResources.rsHardLevel, Source={StaticResource LocalizedStrings}}" Height="93" Margin="27,378,32,252" Name="btnHardLevel" Width="397" Click="btnHardLevel_Click" />
-            <Button Content="{Binding Path=LocalizedResources.rsMediumLevel, Source={StaticResource LocalizedStrings}}" Height="93" Margin="27,299,32,331" Name="btnMediumLevel" Width="397" Click="btnMediumLevel_Click" />
-        </Grid>
     </Grid>
  
     <!--Пример кода, иллюстрирующий использование ApplicationBar-->

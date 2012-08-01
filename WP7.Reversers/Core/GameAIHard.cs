@@ -29,6 +29,7 @@ namespace Reversi
                   let score = Game.CheckScoreFor(c, Player)
                   where score > 0
                   group c by 100 * _costs[c.X, c.Y] - score;
+     
 
       var bestMoves = (from m in moves orderby m.Key select m).
                        First().

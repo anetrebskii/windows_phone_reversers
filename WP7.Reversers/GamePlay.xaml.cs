@@ -23,13 +23,11 @@ namespace WP7.Reversers
         {
             InitializeComponent();
             initializeApplicationBar();
-			VisualStateManager.GoToState(whiteChip, "White", false);
-			VisualStateManager.GoToState(blackChip, "Black", false);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);       
+            base.OnNavigatedTo(e);
             NewGamePrompt();
         }
 
@@ -52,7 +50,7 @@ namespace WP7.Reversers
         void mnuRestartGame_Click(object sender, EventArgs e)
         {
             NewGamePrompt();
-        }   
+        }
 
         int _gameMode = 1;
         bool _fastAi = false;
@@ -81,7 +79,7 @@ namespace WP7.Reversers
                         break;
                 }
             }
-            NewGame(); 
+            NewGame();
         }
 
         void NewGame()
@@ -102,16 +100,41 @@ namespace WP7.Reversers
                     _black = new GameAISimple();
                     break;
                 case 2://pc vs aiMedium
-                    _white=new GamePC();
-                    _black=new GameAIMedium();
+                    _white = new GamePC();
+                    _black = new GameAIMedium();
                     break;
                 case 3://pc vs aiHard
-                    _white=new GamePC();
-                    _black=new GameAIHard();
+                    _white = new GamePC();
+                    _black = new GameAIHard();
                     break;
             }
 
             Game = new Game(_fastAi, SetCell, _white, _black);
+            Game.ChangeActivePlayer += new EventHandler(Game_OnChangeActivePlayer);
+        }
+
+        void Game_OnChangeActivePlayer(object sender, EventArgs e)
+        {            
+            updateActivePlayer();
+        }
+
+        private void updateActivePlayer()
+        {
+            while (Game.ActivePlayer == null)
+            {
+                System.Threading.Thread.Sleep(1);
+            }
+            switch (Game.ActivePlayer.Player)
+            {
+                case Player.White:
+                    imgWhite.Opacity = 1;
+                    imgBlack.Opacity = 0.3;
+                    break;
+                case Player.Black:
+                    imgWhite.Opacity = 0.3;
+                    imgBlack.Opacity = 1;
+                    break;
+            }
         }
 
         void CloseGame()
@@ -152,7 +175,12 @@ namespace WP7.Reversers
                 VisualStateManager.GoToState(cell, value ? "White" : "Black", true);
         }
 
-        void _board_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void _board_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (Game == null || Game.GameOver)
                 return;
@@ -165,12 +193,7 @@ namespace WP7.Reversers
             var p = e.GetPosition(_board);
             var c = new Position((int)(p.X / (_board.Width / 8)), (int)(p.Y / (_board.Height / 8)));
 
-            pc.UserMove(c);
-        }
-
-        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
-        {
-
+            pc.UserMove(c);                                   
         }
     }
 }

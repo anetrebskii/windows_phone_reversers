@@ -14,17 +14,17 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot представляет корневую сетку, где размещается все содержимое страницы-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">        
+    <Grid x:Name="LayoutRoot">
+    	<Grid.Background>
+    		<ImageBrush Stretch="Fill" ImageSource="/Images/background_page.jpg"/>
+    	</Grid.Background>        
         
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.37*"/>
-			<RowDefinition Height="0.63*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-
-<TextBlock x:Name="PageTitle" Text="{Binding Path=LocalizedResources.rsTitle, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <!--TitlePanel содержит имя приложения и заголовок страницы-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="1" Margin="12,17,0,28" VerticalAlignment="Top" HorizontalAlignment="Center">            
-            <Button Content="{Binding LocalizedResources.rsStartGame, Source={StaticResource LocalizedStrings}}" Click="btnStartGame_Click" Height="76" x:Name="btnStartGame" Width="259" />
+        <StackPanel x:Name="TitlePanel" Grid.Row="1" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+        	<Button Content="{Binding LocalizedResources.rsStartGame, Source={StaticResource LocalizedStrings}}" Click="btnStartGame_Click" x:Name="btnStartGame" Background="Transparent" Style="{StaticResource MenuButton}" />
         </StackPanel>
 
     </Grid>

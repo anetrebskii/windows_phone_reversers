@@ -160,10 +160,10 @@
   <data name="rsSimpleLevel" xml:space="preserve">
     <value>Новичок</value>
   </data>
-   <data name="rsMediumLevel" xml:space="preserve">
+  <data name="rsMediumLevel" xml:space="preserve">
     <value>Любитель</value>
   </data>
-   <data name="rsHardLevel" xml:space="preserve">
+  <data name="rsHardLevel" xml:space="preserve">
     <value>Профессионал</value>
   </data>
   <data name="rsStartGame" xml:space="preserve">
@@ -177,5 +177,8 @@
   </data>
   <data name="rsReturnToMainMenu" xml:space="preserve">
     <value>В главное меню</value>
+  </data>
+  <data name="rsWin" xml:space="preserve">
+    <value>Победа!</value>
   </data>
 </root>

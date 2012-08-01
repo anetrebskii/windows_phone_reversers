@@ -14,15 +14,18 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot">
+    	<Grid.Background>
+    		<ImageBrush Stretch="Fill" ImageSource="/Images/background_page.jpg"/>
+    	</Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Margin="12,-0.5,0,28" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Content="{Binding Path=LocalizedResources.rsUserVsUser, Source={StaticResource LocalizedStrings}}" Height="93" Name="btnUserVsUser" Width="409" Click="btnUserVsUser_Click" />
-            <Button Content="{Binding Path=LocalizedResources.rsUserVsAI, Source={StaticResource LocalizedStrings}}" Height="87" Name="btnUserVsAI" Width="409" Click="btnUserVsAI_Click" />
+        <StackPanel x:Name="TitlePanel" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="{Binding Path=LocalizedResources.rsUserVsUser, Source={StaticResource LocalizedStrings}}" Height="93" Name="btnUserVsUser" Width="409" Click="btnUserVsUser_Click" Style="{StaticResource MenuButton}" />
+            <Button Content="{Binding LocalizedResources.rsUserVsAI, Source={StaticResource LocalizedStrings}}" Height="87" x:Name="btnUserVsAI" Width="409" Click="btnUserVsAI_Click" Style="{StaticResource MenuButton}" />
         </StackPanel>
     </Grid>
  
