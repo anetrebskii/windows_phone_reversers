@@ -15,34 +15,36 @@ namespace WP7.Reversers
 {
 	public partial class GameOverControl : UserControl
 	{
-	    public static DependencyProperty WinPlayerProperty;
+	    public static DependencyProperty WinnnerProperty;
 
-        [Description]
-	    public Player WinPlayer
+        [Description()]
+	    public Player Winner
 	    {
 	        get
 	        {
-	            return (Player)GetValue(WinPlayerProperty);
+                return (Player)GetValue(WinnnerProperty);
 	        }
             set
-            {                
-                SetValue(WinPlayerProperty, value);
+            {
+                SetValue(WinnnerProperty, value);
             }
 	    }
 
         static GameOverControl()
         {
-            WinPlayerProperty = DependencyProperty.Register("WinPlayer", typeof(Player),
-                typeof(GameOverControl), new PropertyMetadata(winPlayerChanged));
+            //var metadata = new PropertyMetadata(Player.Free);
+            WinnnerProperty = DependencyProperty.Register("Winner", typeof(Player),
+                typeof(GameOverControl), new PropertyMetadata(Player.Free, winPlayerChanged));
         }
 
-        static void winPlayerChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        public static void winPlayerChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             var control = (GameOverControl) sender;
             switch ((Player)e.NewValue)
             {                    
                 case Player.Black:
                     VisualStateManager.GoToState(control.leftChip, "Black", false);
+                    VisualStateManager.GoToState(control.rightChip, "Black", false);
                     control.leftChip.Visibility = Visibility.Visible;
                     control.rightChip.Visibility = Visibility.Visible;
                     control.txtWinText.Text = Strings.rsWin;
@@ -50,8 +52,8 @@ namespace WP7.Reversers
                 case Player.White:
                     control.leftChip.Visibility = Visibility.Visible;
                     control.rightChip.Visibility = Visibility.Visible;
-
                     VisualStateManager.GoToState(control.leftChip, "White", true);
+                    VisualStateManager.GoToState(control.rightChip, "White", true);
                     control.txtWinText.Text = Strings.rsWin;
                     break;
                 case Player.Free:
@@ -63,7 +65,7 @@ namespace WP7.Reversers
         }
 
 		public GameOverControl()
-		{            
+		{                
 			// Required to initialize variables
 			InitializeComponent();            
 		}

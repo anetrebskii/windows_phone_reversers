@@ -179,6 +179,6 @@ Are you sure, you want to start a new one?</value>
     <value>Main menu</value>
   </data>
   <data name="rsWin" xml:space="preserve">
-    <value>Win!</value>
+    <value>Win</value>
   </data>
 </root>

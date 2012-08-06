@@ -356,11 +356,7 @@ namespace Reversi
         }
 
         void Run()
-        {
-            WinPlayer = Player.White;
-            GameOver = true;
-            
-            
+        {                      
             var whiteReady = _white.NextMoveReady;
             var blackReady = _black.NextMoveReady;
             var whiteDown = false;

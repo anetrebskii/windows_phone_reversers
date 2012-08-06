@@ -242,7 +242,7 @@ namespace WP7.Reversers.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Win!.
+        ///   Looks up a localized string similar to Win.
         /// </summary>
         public static string rsWin {
             get {
