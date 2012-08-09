@@ -12,7 +12,8 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True" d:DesignHeight="696" d:DesignWidth="480" Loaded="PhoneApplicationPage_Loaded">
+    shell:SystemTray.IsVisible="True" d:DesignHeight="696" d:DesignWidth="480" Loaded="PhoneApplicationPage_Loaded"
+    DataContext="{Binding Source={StaticResource GameContext}, Path=CurrentGame}">
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>

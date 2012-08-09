@@ -118,6 +118,10 @@ namespace WP7.Reversers
             updateActivePlayer();
         }
 
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+        }
+
         private void updateActivePlayer()
         {
             while (Game.ActivePlayer == null)

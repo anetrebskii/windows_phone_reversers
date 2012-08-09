@@ -71,6 +71,7 @@
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\MoveToMainMenuCommand.cs" />
     <Compile Include="Commands\StartGame.cs" />
+    <Compile Include="Core\GameContext.cs" />
     <Compile Include="Controls\BoardCell.xaml.cs">
       <DependentUpon>BoardCell.xaml</DependentUpon>
     </Compile>

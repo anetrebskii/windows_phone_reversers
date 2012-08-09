@@ -4,7 +4,9 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:i="clr-namespace:System.Reflection.Emit;assembly=mscorlib" 
-    xmlns:Core="clr-namespace:WP7.Reversers.Core" xmlns:local="clr-namespace:WP7.Reversers.Controls" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" 
+    xmlns:Core="clr-namespace:WP7.Reversers.Core" 
+    xmlns:local="clr-namespace:WP7.Reversers.Controls" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" 
     x:Class="WP7.Reversers.App"
     >
 
@@ -12,9 +14,12 @@
     <Application.Resources>
     	<ResourceDictionary>
     		<local:LocalizedStrings xmlns:local="clr-namespace:WP7.Reversers.Core" x:Key="LocalizedStrings" />
+            <Core:GameContext x:Key="GameContext" />
+            
     		<Style x:Key="ScoreGameLabel" TargetType="TextBlock">
     			<Setter Property="FontSize" Value="64"/>
-    		</Style>			
+    		</Style>		
+            
 			<local:VisibilityConverter x:Key="BoolToVisibilityConverter"/>
 			<Style x:Key="MenuButton" TargetType="Button">
 				<Setter Property="Background" Value="Transparent"/>
@@ -68,7 +73,7 @@
 			<Style x:Key="BoardText" TargetType="TextBlock">
 				<Setter Property="Foreground" Value="#FF210000"/>
 				<Setter Property="Opacity" Value="0.58"/>
-			</Style>
+			</Style>    	  
     	</ResourceDictionary>
         
     </Application.Resources>
