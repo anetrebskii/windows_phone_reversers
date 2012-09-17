@@ -9,13 +9,14 @@ using System.Windows.Controls;
 using resx = WP7.Reversers.Resources.Strings;
 
 namespace Reversi
-{      
+{
     public class Game : INotifyPropertyChanged
     {
         public delegate void CellController(int x, int y, bool style);
 
         public event EventHandler ChangeActivePlayer;
         CellController _controller;
+        private ManualResetEvent _pauseEvent = new ManualResetEvent(true);
 
         #region INotifyPropertyChanged Members
 
@@ -153,6 +154,16 @@ namespace Reversi
             {
                 return p.Valid() ? _cells[p.X, p.Y] : Player.Free;
             }
+        }
+
+        public void Pause()
+        {
+            _pauseEvent.Reset();
+        }
+
+        public void Resume()
+        {
+            _pauseEvent.Set();
         }
 
         /// <summary>
@@ -356,7 +367,7 @@ namespace Reversi
         }
 
         void Run()
-        {                      
+        {
             var whiteReady = _white.NextMoveReady;
             var blackReady = _black.NextMoveReady;
             var whiteDown = false;
@@ -364,6 +375,8 @@ namespace Reversi
 
             while (!GameOver)
             {
+                _pauseEvent.WaitOne();
+
                 whiteDown = !HasMove(Player.White);
 
                 if (!whiteDown)

@@ -39,7 +39,7 @@ namespace WP7.Reversers.Core
 
         public void RestartGame()
         {
-            CurrentGame = new Game();
+            
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

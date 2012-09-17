@@ -14,7 +14,7 @@
     <Application.Resources>
     	<ResourceDictionary>
     		<local:LocalizedStrings xmlns:local="clr-namespace:WP7.Reversers.Core" x:Key="LocalizedStrings" />
-            <Core:GameContext x:Key="GameContext" />
+            
             
     		<Style x:Key="ScoreGameLabel" TargetType="TextBlock">
     			<Setter Property="FontSize" Value="64"/>

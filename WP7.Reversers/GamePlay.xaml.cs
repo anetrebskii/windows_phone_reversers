@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -19,6 +20,35 @@ namespace WP7.Reversers
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        private Popup _pauseMenu = null;
+
+        public Popup PauseMenu
+        {
+            get
+            {
+                if (_pauseMenu == null)
+                {
+                    _pauseMenu = new Popup();
+                    PopupPauseMenu popupPauseMenu = new PopupPauseMenu();
+
+                    popupPauseMenu.btnResume.Click += (o, args) =>
+                    {
+                        Game.Resume();
+                    };
+
+                    popupPauseMenu.btnClose.Click += (o, args) =>
+                                                         {
+                                                             NavigationService.GoBack();
+                                                         };
+
+                    _pauseMenu.Child = popupPauseMenu;
+                    _pauseMenu.VerticalOffset = 300;
+                    _pauseMenu.HorizontalOffset = 100;
+                }
+                return _pauseMenu;
+            }
+        }
+
         public MainPage()
         {
             InitializeComponent();
@@ -114,7 +144,7 @@ namespace WP7.Reversers
         }
 
         void Game_OnChangeActivePlayer(object sender, EventArgs e)
-        {            
+        {
             updateActivePlayer();
         }
 
@@ -197,7 +227,21 @@ namespace WP7.Reversers
             var p = e.GetPosition(_board);
             var c = new Position((int)(p.X / (_board.Width / 8)), (int)(p.Y / (_board.Height / 8)));
 
-            pc.UserMove(c);                                   
+            pc.UserMove(c);
+        }
+
+        private void PhoneApplicationPage_BackKeyPress(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            PauseMenu.IsOpen = !PauseMenu.IsOpen;
+            if (PauseMenu.IsOpen)
+            {
+                Game.Pause();
+            }
+            else
+            {
+                Game.Resume();
+            }
         }
     }
 }

@@ -10,21 +10,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using Microsoft.Phone.Controls;
 
 namespace WP7.Reversers
 {
-    public partial class MainMenu : PhoneApplicationPage
+    public partial class PopupPauseMenu : UserControl
     {
-        public MainMenu()
+        public PopupPauseMenu()
         {
             InitializeComponent();
         }
 
-        private void btnStartGame_Click(object sender, RoutedEventArgs e)
-        { 
-            
-            NavigationService.Navigate(new Uri("/GameSettingsMenu.xaml", UriKind.Relative));
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            closePopup();
+        }
+
+        private void closePopup()
+        {
+            Popup popup = this.Parent as Popup;            
         }
     }
 }

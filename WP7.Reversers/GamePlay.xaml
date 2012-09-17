@@ -6,14 +6,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:WP7.Reversers" 
+    BackKeyPress="PhoneApplicationPage_BackKeyPress"
     xmlns:Microsoft_Advertising_Mobile_UI="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"
     xmlns:Controls="clr-namespace:WP7.Reversers.Controls" x:Class="WP7.Reversers.MainPage"
     mc:Ignorable="d" FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True" d:DesignHeight="696" d:DesignWidth="480" Loaded="PhoneApplicationPage_Loaded"
-    DataContext="{Binding Source={StaticResource GameContext}, Path=CurrentGame}">
+    shell:SystemTray.IsVisible="True" d:DesignHeight="696" d:DesignWidth="480" Loaded="PhoneApplicationPage_Loaded">
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
