@@ -143,6 +143,15 @@ namespace WP7.Reversers.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Resume game.
+        /// </summary>
+        public static string rsResumeGame {
+            get {
+                return ResourceManager.GetString("rsResumeGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Main menu.
         /// </summary>
         public static string rsReturnToMainMenu {

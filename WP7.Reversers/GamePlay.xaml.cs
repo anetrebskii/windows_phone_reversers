@@ -15,45 +15,38 @@ using Microsoft.Phone.Shell;
 using Reversi;
 using WP7.Reversers.Core;
 using WP7.Reversers.Resources;
+using NetWP7Contrib;
 
 namespace WP7.Reversers
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        private Popup _pauseMenu = null;
-
-        public Popup PauseMenu
-        {
-            get
-            {
-                if (_pauseMenu == null)
-                {
-                    _pauseMenu = new Popup();
-                    PopupPauseMenu popupPauseMenu = new PopupPauseMenu();
-
-                    popupPauseMenu.btnResume.Click += (o, args) =>
-                    {
-                        Game.Resume();
-                    };
-
-                    popupPauseMenu.btnClose.Click += (o, args) =>
-                                                         {
-                                                             NavigationService.GoBack();
-                                                         };
-
-                    _pauseMenu.Child = popupPauseMenu;
-                    _pauseMenu.VerticalOffset = 300;
-                    _pauseMenu.HorizontalOffset = 100;
-                }
-                return _pauseMenu;
-            }
-        }
+        private PopupPauseMenu _pauseMenu;
 
         public MainPage()
         {
             InitializeComponent();
             initializeApplicationBar();
+            initializePauseMenu();
         }
+
+        private void initializePauseMenu()
+        {
+            _pauseMenu = new PopupPauseMenu();
+            _pauseMenu.btnClose.Click += (sender, args) =>
+                                             {
+                                                 NavigationService.GoToFirstPage();
+                                             };
+            _pauseMenu.btnRestart.Click += (sender, args) =>
+                                               {
+                                                   restartGame();
+                                               };
+            _pauseMenu.btnResume.Click += (sender, args) =>
+                                              {
+                                                  resumeGame();
+                                              };
+        }
+
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -74,11 +67,17 @@ namespace WP7.Reversers
 
         void mnuReturnToMainMenu_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/MainMenu.xaml", UriKind.Relative));
+            NavigationService.GoToFirstPage();
         }
 
         void mnuRestartGame_Click(object sender, EventArgs e)
         {
+            restartGame();
+        }
+
+        private void restartGame()
+        {
+            _pauseMenu.Hide();
             NewGamePrompt();
         }
 
@@ -233,15 +232,26 @@ namespace WP7.Reversers
         private void PhoneApplicationPage_BackKeyPress(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
-            PauseMenu.IsOpen = !PauseMenu.IsOpen;
-            if (PauseMenu.IsOpen)
+            if (_pauseMenu.IsOpen)
             {
-                Game.Pause();
+                resumeGame();
             }
             else
             {
-                Game.Resume();
+                pauseGame();
             }
+        }
+
+        private void resumeGame()
+        {
+            Game.Resume();
+            _pauseMenu.Hide();
+        }
+
+        private void pauseGame()
+        {
+            Game.Pause();
+            _pauseMenu.ShowDialog();
         }
     }
 }

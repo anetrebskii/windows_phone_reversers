@@ -1,18 +1,18 @@
-﻿<UserControl x:Class="WP7.Reversers.PopupPauseMenu"
+﻿<Windows:PopupWindow x:Class="WP7.Reversers.PopupPauseMenu"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
+                 xmlns:Windows="clr-namespace:NetWP7Contrib.Windows;assembly=NetWP7Contrib" mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="150" d:DesignWidth="200">
+    Foreground="{StaticResource PhoneForegroundBrush}">
     
     <Grid x:Name="LayoutRoot">
         <StackPanel>
-            <Button Content="Resume" x:Name="btnResume"></Button>
-            <Button Content="Close" x:Name="btnClose" Click="Button_Click"></Button>
+            <Button Content="{Binding LocalizedResources.rsResumeGame, Source={StaticResource LocalizedStrings}}" x:Name="btnResume" Style="{StaticResource MenuButton}"></Button>
+            <Button Content="{Binding LocalizedResources.rsRestartGame, Source={StaticResource LocalizedStrings}}" x:Name="btnRestart" Style="{StaticResource MenuButton}"></Button>
+            <Button Content="{Binding LocalizedResources.rsReturnToMainMenu, Source={StaticResource LocalizedStrings}}" x:Name="btnClose" Click="Button_Click" Style="{StaticResource MenuButton}"></Button>
         </StackPanel>
     </Grid>
-</UserControl>
+</Windows:PopupWindow>

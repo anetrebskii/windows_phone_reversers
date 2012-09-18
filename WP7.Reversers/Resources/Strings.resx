@@ -181,4 +181,7 @@ Are you sure, you want to start a new one?</value>
   <data name="rsWin" xml:space="preserve">
     <value>Win</value>
   </data>
+  <data name="rsResumeGame" xml:space="preserve">
+    <value>Resume game</value>
+  </data>
 </root>

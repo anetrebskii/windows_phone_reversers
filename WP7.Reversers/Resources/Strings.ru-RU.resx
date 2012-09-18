@@ -181,4 +181,7 @@
   <data name="rsWin" xml:space="preserve">
     <value>Победа</value>
   </data>
+  <data name="rsResumeGame" xml:space="preserve">
+    <value>Продолжить игру</value>
+  </data>
 </root>

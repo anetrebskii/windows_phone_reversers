@@ -10,10 +10,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using NetWP7Contrib.Windows;
 
 namespace WP7.Reversers
 {
-    public partial class PopupPauseMenu : UserControl
+    public partial class PopupPauseMenu : PopupWindow
     {
         public PopupPauseMenu()
         {
@@ -22,12 +23,12 @@ namespace WP7.Reversers
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            closePopup();
+            
         }
 
         private void closePopup()
         {
-            Popup popup = this.Parent as Popup;            
+
         }
     }
 }
