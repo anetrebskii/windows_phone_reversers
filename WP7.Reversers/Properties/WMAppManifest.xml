@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
   <App xmlns="" ProductID="{edf2d183-6298-4f1a-8b23-9530a3bea242}" Title="Reversers" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="WP7.Reversers author" Description="Sample description" Publisher="WP7.Reversers">
-    <IconPath IsRelative="true" IsResource="false">ApplicationIcon.jpg</IconPath>
+    <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_GAMERSERVICES" />
       <Capability Name="ID_CAP_IDENTITY_DEVICE" />

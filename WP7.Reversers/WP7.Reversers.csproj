@@ -159,9 +159,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Background.jpg" />
+    <Resource Include="ApplicationIcon.png" />
     <Content Include="Images\background_page.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\GameMenuBackground.png" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -175,7 +177,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ApplicationIcon.jpg" />
+    <Resource Include="GameMenuBackground.png" />
     <Resource Include="Images\black.png" />
     <Resource Include="Images\board.jpg" />
     <Resource Include="Images\GameoverBackground.png" />

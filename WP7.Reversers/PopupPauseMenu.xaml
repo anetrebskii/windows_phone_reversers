@@ -7,9 +7,15 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}">
+	<Windows:PopupWindow.Background>
+		<ImageBrush Stretch="Fill"/>
+	</Windows:PopupWindow.Background>
     
-    <Grid x:Name="LayoutRoot">
-        <StackPanel>
+    <Grid x:Name="LayoutRoot" Height="217" Width="349">
+    	<Grid.Background>
+    		<ImageBrush Stretch="Fill" ImageSource="GameMenuBackground.png"/>
+    	</Grid.Background>
+        <StackPanel VerticalAlignment="Center">
             <Button Content="{Binding LocalizedResources.rsResumeGame, Source={StaticResource LocalizedStrings}}" x:Name="btnResume" Style="{StaticResource MenuButton}"></Button>
             <Button Content="{Binding LocalizedResources.rsRestartGame, Source={StaticResource LocalizedStrings}}" x:Name="btnRestart" Style="{StaticResource MenuButton}"></Button>
             <Button Content="{Binding LocalizedResources.rsReturnToMainMenu, Source={StaticResource LocalizedStrings}}" x:Name="btnClose" Click="Button_Click" Style="{StaticResource MenuButton}"></Button>
