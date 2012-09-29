@@ -35,7 +35,7 @@ namespace WP7.Reversers
 
             // Standard Silverlight initialization
             InitializeComponent();
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU");
+
             // Phone-specific initialization
             InitializePhoneApplication();
 

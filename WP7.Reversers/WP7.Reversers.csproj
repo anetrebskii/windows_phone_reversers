@@ -16,7 +16,7 @@
     <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
     <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
     <SilverlightApplication>true</SilverlightApplication>
-    <SupportedCultures>ru-RU</SupportedCultures>
+    <SupportedCultures>en-GB;ru-RU</SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
     <XapFilename>WP7.Reversers.xap</XapFilename>
@@ -115,6 +115,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.ru-RU.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Strings.en-GB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.en-GB.resx</DependentUpon>
+    </Compile>
     <Compile Include="SelectLevelPage.xaml.cs">
       <DependentUpon>SelectLevelPage.xaml</DependentUpon>
     </Compile>
@@ -156,6 +161,11 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
+    <EmbeddedResource Include="Resources\Strings.en-GB.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.en-GB.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Background.jpg" />
